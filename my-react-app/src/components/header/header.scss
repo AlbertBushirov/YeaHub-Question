@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  &__nav {
+    ul {
+      display: flex;
+      list-style: none;
+    }
+  }
+}
