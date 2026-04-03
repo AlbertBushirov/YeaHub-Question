@@ -1,8 +1,14 @@
 import { Header } from "../header/header";
-import "./App.css";
+import { QuestionList } from "../questionList/questionList";
+import "./App.scss";
 
 function App() {
-  return <Header />;
+  return (
+    <>
+      <Header />
+      <QuestionList />
+    </>
+  );
 }
 
 export default App;

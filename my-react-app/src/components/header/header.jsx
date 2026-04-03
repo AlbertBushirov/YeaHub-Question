@@ -5,7 +5,6 @@ export function Header() {
     <header className="header">
       <a href="#" className="header__logo">
         {" "}
-        <img src="" alt="" />
       </a>
       <nav className="header__nav">
         <ul>
