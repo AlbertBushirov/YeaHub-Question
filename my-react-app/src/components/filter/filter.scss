@@ -1,0 +1,31 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 392px;
+  padding: 24px;
+}
+
+.filter li,
+input {
+  border-radius: 12px;
+}
+
+.filter input {
+  height: 48px;
+
+  padding: 12px 24px;
+}
+
+.filter ul {
+  flex-wrap: wrap;
+  list-style-type: none;
+  display: flex;
+  gap: 8px;
+}
+
+.filter li {
+  border: 1px solid rgba(14, 13, 13, 0.459);
+  padding: 6px 12px;
+  cursor: pointer;
+}

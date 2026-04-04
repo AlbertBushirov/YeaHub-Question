@@ -11,7 +11,7 @@ export function Header() {
           <li>База вопросов</li>
           <li> Тренажёр</li>
           <li>Материалы</li>
-          <li>Навыки()</li>
+          <li>Навыки(hh)</li>
         </ul>
       </nav>
       <div className="header__buttons">
