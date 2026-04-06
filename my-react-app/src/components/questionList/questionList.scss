@@ -1,0 +1,7 @@
+@use "../../styles/variables" as *;
+
+.question_list {
+  background-color: $bg-color;
+  border-radius: $radius;
+  width: 804px;
+}

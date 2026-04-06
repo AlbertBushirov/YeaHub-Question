@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./questionList.scss";
 
 export function QuestionList() {
   const [questions, setQuestions] = useState(null);
@@ -19,7 +20,7 @@ export function QuestionList() {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="question_list">
       <h1>Вопросы React, JavaScript</h1>
       <ul className="question_Container">
         {questions?.data.map((q) => {

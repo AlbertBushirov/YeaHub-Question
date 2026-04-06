@@ -1,14 +1,18 @@
+@use "../../styles/variables" as *;
+
 .filter {
   display: flex;
   flex-direction: column;
   gap: 24px;
   max-width: 392px;
   padding: 24px;
+  background-color: $bg-color;
+  border-radius: $radius;
 }
 
 .filter li,
 input {
-  border-radius: 12px;
+  border-radius: $radius;
 }
 
 .filter input {

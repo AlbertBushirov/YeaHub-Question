@@ -1,5 +1,8 @@
+@use "../../styles/variables" as *;
+
 .header {
   display: flex;
+  background-color: $bg-color;
   &__nav {
     ul {
       display: flex;
