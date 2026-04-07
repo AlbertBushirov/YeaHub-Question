@@ -8,7 +8,6 @@ export function Skills() {
       try {
         const response = await fetch("https://api.yeatwork.ru/skills");
         const json = await response.json();
-        console.log(json);
         setSkills(json);
       } catch (error) {
         console.error(error);

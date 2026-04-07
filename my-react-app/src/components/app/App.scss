@@ -1,6 +1,7 @@
+@use "../../styles/variables" as *;
+
 main {
-  --bg-color: #b99e9e;
-  background-color: var(--bg-color);
+  background-color: $bg-main-color;
   display: flex;
   padding-inline: 112px;
   padding-top: 40px;

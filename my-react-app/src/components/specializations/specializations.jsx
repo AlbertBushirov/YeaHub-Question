@@ -1,36 +1,27 @@
-import { useState, useEffect } from "react";
+import "./specializations.scss";
 
-export function Specializations() {
-  const [specializations, setSpecializations] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://api.yeatwork.ru/specializations");
-        const json = await response.json();
-        console.log(json);
-        setSpecializations(json);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+export function Specializations({
+  specializations,
+  selectedSpec,
+  setSelectedSpec,
+}) {
   return (
     <div>
       <span>Специализация</span>
-      <ul>
+      <div>
         {specializations?.data.map((s) => {
+          const isActive = s.slug === selectedSpec;
           return (
-            <li>
-              <span>{s.title}</span>
-            </li>
+            <button
+              className={isActive ? "btn-active" : "btn-default"}
+              onClick={() => setSelectedSpec(s.slug)}
+            >
+              {s.title}
+            </button>
           );
         })}
-      </ul>
-      <button>Посмотреть все</button>
+      </div>
+      <a>Посмотреть все</a>
     </div>
   );
 }

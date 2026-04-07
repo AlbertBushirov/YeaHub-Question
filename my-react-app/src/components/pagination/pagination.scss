@@ -1,0 +1,38 @@
+@use "../../styles/variables" as *;
+
+.pagination {
+  display: flex;
+  gap: 10px;
+}
+
+.pagination div {
+  display: flex;
+}
+
+.numbers button {
+  padding-inline: 6px;
+  &.active {
+    background-color: $bg-button-active;
+    color: $color-active;
+  }
+}
+
+.arrow_right,
+.arrow_left {
+  width: 28px;
+  height: 28px;
+}
+
+.arrow_right:disabled,
+.arrow_left:disabled {
+  filter: grayscale(1) opacity(0.5);
+  cursor: not-allowed;
+}
+
+.arrow_right {
+  background-image: url("../../images/Arrow_btn.svg");
+}
+
+.arrow_left {
+  background-image: url("../../images/Arrows.svg");
+}

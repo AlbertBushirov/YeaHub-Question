@@ -1,4 +1,4 @@
-//@import "../fonts/font.scss";
+@use "../styles/variables" as *;
 
 html,
 div,
@@ -133,4 +133,11 @@ q::after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: $radius;
 }

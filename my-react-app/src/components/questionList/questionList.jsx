@@ -1,24 +1,8 @@
-import { useState, useEffect } from "react";
 import "./questionList.scss";
 
-export function QuestionList() {
-  const [questions, setQuestions] = useState(null);
+import { Pagination } from "../pagination/pagination";
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://api.yeatwork.ru/questions/public-questions",
-        );
-        const json = await response.json();
-        setQuestions(json);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+export function QuestionList({ questions, pageNumber, setPageNumber }) {
   return (
     <div className="question_list">
       <h1>Вопросы React, JavaScript</h1>
@@ -41,6 +25,8 @@ export function QuestionList() {
           );
         })}
       </ul>
+      <Pagination page={pageNumber} total={24} onChange={setPageNumber} />
+      {/*Смог сделать только строгий тотал*/}
     </div>
   );
 }

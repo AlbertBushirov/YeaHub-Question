@@ -6,7 +6,13 @@ import { Rating } from "../rating/rating";
 import { Status } from "../status/status";
 import "./filter.scss";
 
-export function Filter() {
+export function Filter({
+  keywords,
+  setKeywords,
+  specializations,
+  selectedSpec,
+  setSelectedSpec,
+}) {
   return (
     <div className="filter">
       <input
@@ -14,8 +20,16 @@ export function Filter() {
         name="search"
         type="search"
         placeholder="Введите вопрос"
+        value={keywords}
+        onChange={(e) => {
+          setKeywords(e.target.value);
+        }}
       />
-      <Specializations />
+      <Specializations
+        specializations={specializations}
+        setSelectedSpec={setSelectedSpec}
+        selectedSpec={selectedSpec}
+      />
       <Skills />
       <Levels />
       <Rating />
