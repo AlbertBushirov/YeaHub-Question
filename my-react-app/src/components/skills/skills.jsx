@@ -1,35 +1,39 @@
-import { useState, useEffect } from "react";
+import "./skills.scss";
+import { useState } from "react";
 
-export function Skills() {
-  const [skills, setSkills] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("https://api.yeatwork.ru/skills");
-        const json = await response.json();
-        setSkills(json);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+export function Skills({ skills, selectedSkill, setSelectedSkill }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const allData = skills?.data || [];
+  const displayedData = isExpanded ? allData : allData.slice(0, 5);
 
   return (
     <div>
       <span>Навыки</span>
       <ul>
-        {skills?.data.map((s) => {
+        {displayedData.map((s) => {
+          const isActive = s.title === selectedSkill;
           return (
             <li>
-              <span>{s.title}</span>
+              <button
+                key={s.id}
+                className={isActive ? "btn-active" : "btn-default"}
+                onClick={() => setSelectedSkill(s.title)}
+              >
+                <img class="skills__image" src={s.imageSrc} alt="" />
+                <span> {s.title}</span>
+              </button>
             </li>
           );
         })}
       </ul>
-      <button>Посмотреть все</button>
+      <a
+        onClick={(e) => {
+          e.preventDefault();
+          setIsExpanded(!isExpanded);
+        }}
+      >
+        {isExpanded ? "Скрыть" : "Посмотреть все"}
+      </a>
     </div>
   );
 }

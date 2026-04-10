@@ -12,14 +12,21 @@ export function Filter({
   specializations,
   selectedSpec,
   setSelectedSpec,
+  skills,
+  selectedSkill,
+  setSelectedSkill,
+  selectedLevels,
+  setSelectedLevels,
+  selectedRating,
+  setSelectedRating,
 }) {
   return (
-    <div className="filter">
+    <aside className="filter">
       <input
         id="search"
         name="search"
         type="search"
-        placeholder="Введите вопрос"
+        placeholder="Введите вопрос..."
         value={keywords}
         onChange={(e) => {
           setKeywords(e.target.value);
@@ -30,10 +37,20 @@ export function Filter({
         setSelectedSpec={setSelectedSpec}
         selectedSpec={selectedSpec}
       />
-      <Skills />
-      <Levels />
-      <Rating />
+      <Skills
+        skills={skills}
+        selectedSkill={selectedSkill}
+        setSelectedSkill={setSelectedSkill}
+      />
+      <Levels
+        selectedLevels={selectedLevels}
+        setSelectedLevels={setSelectedLevels}
+      />
+      <Rating
+        selectedRating={selectedRating}
+        setSelectedRating={setSelectedRating}
+      />
       <Status />
-    </div>
+    </aside>
   );
 }

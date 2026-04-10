@@ -1,27 +1,42 @@
-import "./specializations.scss";
+import { useState } from "react";
 
 export function Specializations({
   specializations,
   selectedSpec,
   setSelectedSpec,
 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const allData = specializations?.data || [];
+  const displayedData = isExpanded ? allData : allData.slice(0, 5);
+
   return (
     <div>
       <span>Специализация</span>
-      <div>
-        {specializations?.data.map((s) => {
+      <ul>
+        {displayedData.map((s) => {
           const isActive = s.slug === selectedSpec;
           return (
-            <button
-              className={isActive ? "btn-active" : "btn-default"}
-              onClick={() => setSelectedSpec(s.slug)}
-            >
-              {s.title}
-            </button>
+            <li>
+              <button
+                key={s.id}
+                className={isActive ? "btn-active" : "btn-default"}
+                onClick={() => setSelectedSpec(s.slug)}
+              >
+                {s.title}
+              </button>
+            </li>
           );
         })}
-      </div>
-      <a>Посмотреть все</a>
+      </ul>
+
+      <a
+        onClick={(e) => {
+          e.preventDefault();
+          setIsExpanded(!isExpanded);
+        }}
+      >
+        {isExpanded ? "Скрыть" : "Посмотреть все"}
+      </a>
     </div>
   );
 }

@@ -1,5 +1,30 @@
-$bg-main-color: #b99e9e;
+$bg-main-color: #e0e0e0;
 $bg-color: #ffffff;
-$radius: 0.5rem;
 $bg-button-active: #5719e9;
+$bg-footer: #18003e;
 $color-active: #ffffff;
+$hover-button: #6a0bff;
+$border-default: 0.5px solid #e8e8e8;
+$hover-color: #6a0bff;
+$color-a: #6a0bff;
+$color-black: #8c8c8c;
+
+$radius: 12px;
+$font-size: 16px;
+$font-size-f: 12px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-space {
+  display: flex;
+  justify-content: space-between;
+}

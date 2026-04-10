@@ -17,7 +17,7 @@ export function QuestionList({ questions, pageNumber, setPageNumber }) {
                   <span>{`Сложность: ${q.complexity}`}</span>
                 </div>
                 <div>
-                  <image></image>
+                  <img src={q.imageSrc} alt={q.title} />
                   <p>{q.shortAnswer}</p>
                 </div>
               </details>

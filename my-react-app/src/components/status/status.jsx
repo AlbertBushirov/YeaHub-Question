@@ -1,16 +1,19 @@
-import { useState } from "react";
 import "./status.scss";
 
 export function Status() {
-  const [status, setStatus] = useState(null);
-
   return (
     <div className="status">
       <span>Статус</span>
       <ul>
-        <li>Изученные</li>
-        <li>Не изученные</li>
-        <li>Все</li>
+        <li>
+          <button className="btn-default">Изученные</button>
+        </li>
+        <li>
+          <button className="btn-default">Не изученные</button>
+        </li>
+        <li>
+          <button className="btn-default">Все</button>
+        </li>
       </ul>
     </div>
   );
