@@ -1,7 +1,7 @@
 @use "../../styles/variables" as *;
 
 main {
-  @include flex-center;
+  @include flex-start;
   background-color: $bg-main-color;
   padding: 30px 60px 120px;
   gap: 20px;

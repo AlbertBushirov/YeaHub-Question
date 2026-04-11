@@ -6,18 +6,19 @@ export function QuestionList({ questions, pageNumber, setPageNumber }) {
   return (
     <div className="question_list">
       <h1>Вопросы React, JavaScript</h1>
-      <ul className="question_Container">
+      <hr />
+      <ul className="question_list__container">
         {questions?.data.map((q) => {
           return (
             <li>
-              <details>
+              <details className="details">
                 <summary>{q.title}</summary>
-                <div>
+                <div className="details__params">
                   <span>{`Рейтинг: ${q.rate}`}</span>
                   <span>{`Сложность: ${q.complexity}`}</span>
                 </div>
                 <div>
-                  <img src={q.imageSrc} alt={q.title} />
+                  <img src={q.imageSrc} alt="" />
                   <p>{q.shortAnswer}</p>
                 </div>
               </details>
@@ -26,7 +27,6 @@ export function QuestionList({ questions, pageNumber, setPageNumber }) {
         })}
       </ul>
       <Pagination page={pageNumber} total={24} onChange={setPageNumber} />
-      {/*Смог сделать только строгий тотал*/}
     </div>
   );
 }

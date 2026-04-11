@@ -32,7 +32,7 @@ export function Pagination({ page, total, onChange }) {
           onChange(page - 1);
         }}
       ></button>
-      <div className="numbers">
+      <div className="pagination__numbers">
         {paginationItems.map((item, index) => {
           return (
             <button
