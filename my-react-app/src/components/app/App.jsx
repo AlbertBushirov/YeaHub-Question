@@ -1,8 +1,8 @@
 import "./App.scss";
-import BASE_URL from "../api/url";
+import BASE_URL from "../../api/url";
 import { useState, useEffect } from "react";
 import { Header } from "../header/header";
-import { QuestionList } from "../questionList/questionList";
+import { Page } from "../page/page";
 import { Filter } from "../filter/filter";
 import { useDeBounce } from "../hooks/useDebounce";
 import { Footer } from "../footer/footer";
@@ -102,11 +102,12 @@ function App() {
     selectedRating,
   ]);
 
+  console.log(questions);
   return (
     <>
       <Header />
       <main>
-        <QuestionList
+        <Page
           questions={questions}
           pageNumber={pageNumber}
           setPageNumber={setPageNumber}

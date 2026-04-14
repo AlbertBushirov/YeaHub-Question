@@ -1,9 +1,4 @@
-import { useState } from "react";
-import { Specializations } from "../specializations/specializations";
-import { Skills } from "../skills/skills";
-import { Levels } from "../levels/levels";
-import { Rating } from "../rating/rating";
-import { Status } from "../status/status";
+import { ListButtons } from "../listButtons/listButtons";
 import "./filter.scss";
 
 export function Filter({
@@ -20,6 +15,29 @@ export function Filter({
   selectedRating,
   setSelectedRating,
 }) {
+  const levelsConfig = {
+    data: [
+      { id: 1, title: "1-3" },
+      { id: 4, title: "4-6" },
+      { id: 7, title: "7-8" },
+      { id: 9, title: "9-10" },
+    ],
+  };
+
+  const ratingConfig = {
+    data: [
+      { title: 1 },
+      { title: 2 },
+      { title: 3 },
+      { title: 4 },
+      { title: 5 },
+    ],
+  };
+
+  const statusConfig = {
+    data: [{ title: "Изученные" }, { title: "Не изученные" }, { title: "Все" }],
+  };
+
   return (
     <aside className="filter">
       <input
@@ -32,25 +50,35 @@ export function Filter({
           setKeywords(e.target.value);
         }}
       />
-      <Specializations
-        specializations={specializations}
-        setSelectedSpec={setSelectedSpec}
-        selectedSpec={selectedSpec}
+      <ListButtons
+        name="Специализация"
+        title="slug"
+        buttons={specializations}
+        selected={selectedSpec}
+        setSelected={setSelectedSpec}
       />
-      <Skills
-        skills={skills}
-        selectedSkill={selectedSkill}
-        setSelectedSkill={setSelectedSkill}
+      <ListButtons
+        name="Навыки"
+        title="title"
+        buttons={skills}
+        selected={selectedSkill}
+        setSelected={setSelectedSkill}
       />
-      <Levels
-        selectedLevels={selectedLevels}
-        setSelectedLevels={setSelectedLevels}
+      <ListButtons
+        name="Уровень сложности"
+        title="id"
+        buttons={levelsConfig}
+        selected={selectedLevels}
+        setSelected={setSelectedLevels}
       />
-      <Rating
-        selectedRating={selectedRating}
-        setSelectedRating={setSelectedRating}
+      <ListButtons
+        name="Рейтинг"
+        title="title"
+        buttons={ratingConfig}
+        selected={selectedRating}
+        setSelected={setSelectedRating}
       />
-      <Status />
+      <ListButtons name="Статус" title="title" buttons={statusConfig} />
     </aside>
   );
 }

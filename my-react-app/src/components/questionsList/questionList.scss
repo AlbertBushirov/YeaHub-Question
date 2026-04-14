@@ -57,9 +57,9 @@
 
       .details {
         @include flex-column;
-        gap: 24px;
 
         &__params {
+          margin-top: 24px;
           display: flex;
           gap: 40px;
           font-size: $font-size-s;
