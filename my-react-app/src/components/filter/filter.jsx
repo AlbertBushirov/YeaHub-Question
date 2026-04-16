@@ -1,20 +1,23 @@
 import { ListButtons } from "../listButtons/listButtons";
 import "./filter.scss";
 
-export function Filter({
-  keywords,
-  setKeywords,
-  specializations,
-  selectedSpec,
-  setSelectedSpec,
-  skills,
-  selectedSkill,
-  setSelectedSkill,
-  selectedLevels,
-  setSelectedLevels,
-  selectedRating,
-  setSelectedRating,
-}) {
+export function Filter({ values, actions, data }) {
+  const {
+    keywords,
+    selectedSpec,
+    selectedSkill,
+    selectedLevels,
+    selectedRating,
+  } = values;
+  const {
+    setKeywords,
+    setSelectedSpec,
+    setSelectedSkill,
+    setSelectedLevels,
+    setSelectedRating,
+  } = actions;
+  const { specializations, skills } = data;
+
   const levelsConfig = {
     data: [
       { id: 1, title: "1-3" },
